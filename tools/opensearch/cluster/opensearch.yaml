@@ -1,0 +1,40 @@
+apiVersion: opensearch.opster.io/v1
+kind: OpenSearchCluster
+metadata:
+  name: logging-cluster
+spec:
+  general:
+    serviceName: logging-cluster
+    version: 2.3.0
+  dashboards:
+    enable: true
+    version: 2.3.0
+    replicas: 1
+    resources:
+      requests:
+         memory: "512Mi"
+         cpu: "200m"
+      limits:
+         memory: "512Mi"
+         cpu: "200m"
+  nodePools:
+    - component: masters
+      replicas: 1
+      diskSize: "5Gi"
+      NodeSelector:
+      resources:
+         requests:
+            memory: "1Gi"
+            cpu: "500m"
+         limits:
+            memory: "2Gi"
+            cpu: "500m"
+      roles:
+        - "data"
+        - "master"
+  security:
+    tls:
+      transport:
+        generate: true
+      http:
+        generate: true
