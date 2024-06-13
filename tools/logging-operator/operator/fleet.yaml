@@ -3,5 +3,3 @@ helm:
   repo: "oci://ghcr.io/kube-logging/helm-charts/logging-operator"
   valuesFiles:
     - values.yaml
-kustomize:
-  dir: overlays/logging
