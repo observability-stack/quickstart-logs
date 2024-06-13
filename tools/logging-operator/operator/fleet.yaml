@@ -1,5 +1,6 @@
 defaultNamespace: logs
 helm:
+  releaseName: logging-operator
   repo: "oci://ghcr.io/kube-logging/helm-charts/logging-operator"
   valuesFiles:
     - values.yaml
