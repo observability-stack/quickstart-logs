@@ -1,0 +1,43 @@
+replication: false
+global:
+  seLinux:
+    enabled: false
+createCustomResource: true
+additionalLoggingSources:
+  rke2:
+    enabled: false
+    stripUnderscores: false
+disablePvc: false
+fluentbit: {}
+fluentd:
+  logLevel: debug
+  metrics: true
+  serviceMonitor: true
+  replicas: 8
+  workers: 2
+  bufferVolumeMetrics:
+    serviceMonitor: true
+  bufferStorageVolume:
+    pvc:
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 10Gi
+        volumeMode: Filesystem
+  env: []
+  livenessProbe:
+    initialDelaySeconds: 30
+    periodSeconds: 15
+    tcpSocket:
+      port: 24240
+  nodeSelector: {}
+  resources:
+    limits:
+#      cpu: 1000m
+#      memory: 4Gi
+    requests:
+#      cpu: 500m
+#      memory: 2Gi
+  tolerations: {}
