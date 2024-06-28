@@ -12,7 +12,7 @@ spec:
         output_type: json
   fluentbit:
     metrics:
-      serviceMonitor: true
+      serviceMonitor: false # set to true if you installed the metrics component and would like to gather metrics from fluentbit
   fluentd:
     metrics:
-      serviceMonitor: true
+      serviceMonitor: false # set to true if you installed the metrics component and would like to gather metrics from fluentd
