@@ -1,4 +1,4 @@
-defaultNamespace: logs
+defaultNamespace: logging
 helm:
   releaseName: logging-operator
   chart: "oci://ghcr.io/kube-logging/helm-charts/logging-operator"
