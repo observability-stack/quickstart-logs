@@ -1,4 +1,4 @@
-defaultNamespace: logs
+defaultNamespace: logging
 helm:
   releaseName: opensearch-operator
   repo: "https://opensearch-project.github.io/opensearch-k8s-operator"
