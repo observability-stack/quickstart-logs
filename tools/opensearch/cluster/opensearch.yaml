@@ -18,7 +18,7 @@ spec:
          memory: "512Mi"
          cpu: "200m"
   nodePools:
-    - component: masters
+    - component: nodes
       replicas: 1
       diskSize: "5Gi"
       NodeSelector:
@@ -31,10 +31,4 @@ spec:
             cpu: "500m"
       roles:
         - "data"
-        - "master"
-  security:
-    tls:
-      transport:
-        generate: true
-      http:
-        generate: true
+        - "cluster_manager"
