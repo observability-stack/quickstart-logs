@@ -2,10 +2,7 @@ apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
 metadata:
   name: logging-operator-root
-  namespace: logging
 spec:
-  globalFilters:
-    - enhanceK8s: {}
   controlNamespace: logging
   filters:
     - stdout:
@@ -16,3 +13,5 @@ spec:
   fluentd:
     metrics:
       serviceMonitor: false # set to true if you installed the metrics component and would like to gather metrics from fluentd
+  globalFilters:
+    - enhanceK8s: {}
