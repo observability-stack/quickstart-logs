@@ -10,6 +10,7 @@ spec:
     enable: true
     version: 2.3.0
     replicas: 1
+    discovery.type: single-node
     resources:
       requests:
          memory: "512Mi"
@@ -19,9 +20,8 @@ spec:
          cpu: "200m"
   nodePools:
     - component: nodes
-      replicas: 1
+      replicas: 3
       diskSize: "5Gi"
-      NodeSelector:
       resources:
          requests:
             memory: "1Gi"

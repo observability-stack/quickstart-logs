@@ -2,11 +2,11 @@ apiVersion: logging.banzaicloud.io/v1beta1
 kind: Logging
 metadata:
   name: logging-operator-root
-  namespace: logs
+  namespace: logging
 spec:
   globalFilters:
     - enhanceK8s: {}
-  controlNamespace: logs
+  controlNamespace: logging
   filters:
     - stdout:
         output_type: json
