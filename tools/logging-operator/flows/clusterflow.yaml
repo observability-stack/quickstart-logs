@@ -1,0 +1,30 @@
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: ClusterFlow
+metadata:
+  name: cluster-wide-flow
+spec:
+  filters:
+    - detectExceptions:
+        languages:
+          - java
+          - python
+          - go
+        multilineFlushInterval: 60s
+    - tag_normaliser: {}
+    - parser:
+        remove_key_name_field: true
+        reserve_data: true
+        parse:
+          type: multi_format
+          patterns:
+            - format: json # Assuming you want to parse JSON formatted logs
+            - format: syslog # Assuming you want to parse syslog formatted logs
+              # Additional configuration for syslog parsing might be required here
+            - format: none
+  globalOutputRefs:
+    - cluster-wide-logging # ClusterOutput name
+  match:
+    - select:
+        namespaces:
+          - kube-system
+          - cattle-fleet-system
